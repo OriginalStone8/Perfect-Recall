@@ -15,6 +15,7 @@ public class ScoreDisplayUI : MonoBehaviour
 
     [SerializeField] private ScoreDisplayScene displayScene; 
     [SerializeField] private TextMeshProUGUI highScoreText, scoreText;
+    [SerializeField] private TextMeshProUGUI newHighScoreText;
 
     private void Awake() 
     {
@@ -27,6 +28,15 @@ public class ScoreDisplayUI : MonoBehaviour
             SetBothTexts();
         else
             SetHighScoreText();
+
+        if (displayScene == ScoreDisplayScene.GameOver && ScoreManager.Instance.GetIsNewHighScore())
+        {
+            newHighScoreText.text = "NEW HIGH SCORE!";
+        }
+        else if (displayScene == ScoreDisplayScene.GameOver)
+        {
+            newHighScoreText.text = "";
+        }
     }
 
     public void SetScoreText()

@@ -38,7 +38,7 @@ public class MidRoundChallenge : MonoBehaviour
     {
         // steps:
         // 1) pair the 4 buttons
-        List<GameButton> buttons = FindObjectsOfType<GameButton>().ToList();
+        List<GameButton> buttons = SequenceManager.Instance.GetGameButtonList();
         ListExtensions.Suffle(buttons);
 
         // 2) using lean tween swap one pair positions at a time

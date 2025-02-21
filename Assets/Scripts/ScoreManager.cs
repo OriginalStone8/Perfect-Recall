@@ -8,6 +8,7 @@ public class ScoreManager : Singleton<ScoreManager>
     [SerializeField] private int scoreMultiplier;
     [SerializeField] private int timeMultiplierMax;
     private int currentScore;
+    private bool isNewHighScore;
 
     private void Start() 
     {
@@ -24,6 +25,11 @@ public class ScoreManager : Singleton<ScoreManager>
     public void ResetScore()
     {
         currentScore = 0;
+    }
+
+    public void ResetIsNewHighScore()
+    {
+        isNewHighScore = false;
     }
 
     public int GetScoreMultiplier()
@@ -58,6 +64,12 @@ public class ScoreManager : Singleton<ScoreManager>
         {
             PlayerPrefs.SetInt("HighScore", currentScore);
             ScoreDisplayUI.Instance.SetHighScoreText();
+            isNewHighScore = true;
         }
+    }
+
+    public bool GetIsNewHighScore()
+    {
+        return isNewHighScore;
     }
 }

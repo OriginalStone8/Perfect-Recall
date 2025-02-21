@@ -93,6 +93,7 @@ public class SequenceManager : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         for (int i = 0; i < requiredActionSequence.Count; i++)
         {
+            FindObjectOfType<AudioPlayer>().PlayShowcaseClickSFX();
             requiredActionSequence[i].Pressed();
             requiredActionSequence[i].LightUp();
             float timeBetween = ButtonColorAssigner.LightUpDuration * 2;
@@ -133,8 +134,6 @@ public class SequenceManager : MonoBehaviour
         }
         else if (input.Count == requiredActionSequence.Count)
         {
-            //FindObjectOfType<AudioPlayer>().PlayRoundCompletedSFX();
-
             countTime = false;
             
             SequenceInputManager.Instance.ClearInputList();

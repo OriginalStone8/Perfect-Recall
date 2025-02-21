@@ -155,7 +155,6 @@ public class GameLoopManager : MonoBehaviour
         if (currentRound % ChallengeManager.Instance.GetChallengeRoundDivider() == 0)
         {
             RoundDisplayUI.Instance.ToggleRoundWaitPopUp(true, ChallengeManager.Instance.RandomChallenge(), "dark");
-            FindObjectOfType<AudioPlayer>().PlayChallengeSFX();
         }  
         else
         {

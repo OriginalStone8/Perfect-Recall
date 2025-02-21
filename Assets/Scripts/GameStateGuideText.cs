@@ -25,6 +25,17 @@ public class GameStateGuideText : MonoBehaviour
         {
             textField.text = repeatM;
         }
+        else if (state == GameLoopManager.State.MidRoundChallenge)
+        {
+            if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.ShuffledButtons))
+            {
+                textField.text = "Shuffling..";
+            }
+            else if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.DisapearingButtons))
+            {
+                textField.text = "Disappearing..";
+            }
+        }
         else
         {
             textField.text = "";

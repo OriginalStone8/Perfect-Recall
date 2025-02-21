@@ -619,6 +619,7 @@ MonoBehaviour:
   displayScene: 1
   highScoreText: {fileID: 117819150}
   scoreText: {fileID: 0}
+  newHighScoreText: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,13 +1680,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 0}
   BGMusicDuration: 0
-  clickSFX: {fileID: 0}
-  buttonSFX: {fileID: 0}
-  challegeSFX: {fileID: 0}
-  gameOverSFX: {fileID: 8300000, guid: 50a1f3300793dd34b82da1aa95faed32, type: 3}
+  clickSFX: {fileID: 8300000, guid: 354bf4123debaef49994f183dfedaf16, type: 3}
+  buttonSFXs:
+  - {fileID: 8300000, guid: 99fcbf617b406c84995b5206373bdf28, type: 3}
+  - {fileID: 8300000, guid: 95e91e4b0e8c1d744a807e90baaca267, type: 3}
+  - {fileID: 8300000, guid: ae175b894de58394baf9d5e6d4a22319, type: 3}
+  - {fileID: 8300000, guid: 4acee0766b8ee404698fad1701f91e3c, type: 3}
+  - {fileID: 8300000, guid: a2f9d9aeaf651a240ae35791a6365bee, type: 3}
+  - {fileID: 8300000, guid: e73432bccf2814742a4d7d7628a59f1a, type: 3}
+  challegeSFX: {fileID: 8300000, guid: aee48bc1495563844ae421591dd5fc37, type: 3}
+  gameOverSFX: {fileID: 8300000, guid: 4843057f892a82e409949257939e2d44, type: 3}
   roundCompletedSFX: {fileID: 8300000, guid: de909b0c874732640815a4d95146c093, type: 3}
-  countdownSFX: {fileID: 8300000, guid: 2f7e008ac02614b409f27ddca71337c3, type: 3}
-  countdownCompletedSFX: {fileID: 8300000, guid: 2f7e008ac02614b409f27ddca71337c3, type: 3}
+  countdownSFX: {fileID: 8300000, guid: 87c05a6a1e991d846aaa4b20f53957a1, type: 3}
+  countdownCompletedSFX: {fileID: 8300000, guid: 83cdd1dec0bad4d42b16cb4f504732c5, type: 3}
+  showcaseClickSFX: {fileID: 8300000, guid: 64b3236c648f186469815c5c5dbc92f8, type: 3}
   musicSource: {fileID: 298272359}
   SFXSource: {fileID: 1022303799}
 --- !u!1 &2030894185

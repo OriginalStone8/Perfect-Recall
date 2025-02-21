@@ -49,6 +49,7 @@ public class ButtonColorAssigner : MonoBehaviour
 
     public void SetGlowMaterial(SpriteRenderer renderer)
     {
+        if (!presetColors.Contains(renderer.color)) return;
         int index = presetColors.IndexOf(renderer.color);
         renderer.material = glowMats[index];
     }

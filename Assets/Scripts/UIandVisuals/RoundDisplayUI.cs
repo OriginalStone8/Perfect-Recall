@@ -31,7 +31,6 @@ public class RoundDisplayUI : MonoBehaviour
 
     private void CallStartRound()
     {
-        FindObjectOfType<AudioPlayer>().PlayClickSFX();
         GameLoopManager.Instance.SetCurrentState(GameLoopManager.State.Countdown);
         ToggleRoundWaitPopUp(false, null);
         StartCountDown.Instance.ToggleCountdownText(true);
@@ -68,6 +67,10 @@ public class RoundDisplayUI : MonoBehaviour
     {
         ToggleRoundWaitPopUp(enable, challengeSO);
         SceneVisualChange.Instance.ChangeSceneColorTheme(sceneTheme);
+        if (enable && challengeSO != null)
+        {
+            FindObjectOfType<AudioPlayer>().PlayChallengeSFX();
+        }
     }
 
     private void PopUpAnim(bool enable)

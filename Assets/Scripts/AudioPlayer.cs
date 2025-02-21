@@ -13,7 +13,7 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] private AudioClip clickSFX;
 
     [Header("Press Button SFX")]
-    [SerializeField] private AudioClip buttonSFX;
+    [SerializeField] private List<AudioClip> buttonSFXs;
 
     [Header("Challenge started SFX")]
     [SerializeField] private AudioClip challegeSFX;
@@ -29,6 +29,9 @@ public class AudioPlayer : MonoBehaviour
 
     [Header("Countdown Completed SFX")]
     [SerializeField] private AudioClip countdownCompletedSFX;
+
+    [Header("Showcase Click SFX")]
+    [SerializeField] private AudioClip showcaseClickSFX;
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
@@ -109,7 +112,7 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlayButtonSFX()
     {
-        PlayClip(buttonSFX);
+        PlayClip(buttonSFXs[Random.Range(0, buttonSFXs.Count)]);
     }
 
     public void PlayGameOverSFX()
@@ -130,6 +133,11 @@ public class AudioPlayer : MonoBehaviour
     public void PlayCountdownSFX()
     {
         PlayClip(countdownSFX);
+    }
+
+    public void PlayShowcaseClickSFX()
+    {
+        PlayClip(showcaseClickSFX);
     }
 
     public void PlayCountdownCompletedSFX()

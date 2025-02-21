@@ -26,6 +26,7 @@ public class SceneLoader : MonoBehaviour
     {
         FindObjectOfType<AudioPlayer>().PlayButtonSFX();
         ScoreManager.Instance.ResetScore();
+        ScoreManager.Instance.ResetIsNewHighScore();
         StartCoroutine(LoadSceneRoutine("GameScene", 1f));
     }
 
@@ -33,6 +34,7 @@ public class SceneLoader : MonoBehaviour
     {
         FindObjectOfType<AudioPlayer>().PlayButtonSFX();
         ScoreManager.Instance.ResetScore();
+        ScoreManager.Instance.ResetIsNewHighScore();
         StartCoroutine(LoadSceneRoutine("MainMenu", 1f));
     }
 

@@ -3056,6 +3056,7 @@ MonoBehaviour:
   displayScene: 2
   highScoreText: {fileID: 1321712905}
   scoreText: {fileID: 1153584169}
+  newHighScoreText: {fileID: 0}
 --- !u!1 &963990773
 GameObject:
   m_ObjectHideFlags: 0
@@ -6491,7 +6492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2023857584
 RectTransform:
   m_ObjectHideFlags: 0

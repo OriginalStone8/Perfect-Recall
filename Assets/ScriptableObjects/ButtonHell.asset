@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   challengeName: Button Hell
   description: This round will consist of 16 buttons instead of 4
-  icon: {fileID: 21300000, guid: 70141d51621e24facbca9196bbde84b4, type: 3}
+  icon: {fileID: 21300000, guid: 2b2afd9ba7a8ba6439aa10df6cd98f54, type: 3}
   challengeType: 4
   midRound: 0

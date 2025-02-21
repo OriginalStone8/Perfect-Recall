@@ -15,6 +15,6 @@ MonoBehaviour:
   challengeName: Disappearing
   description: After each sequence showcase the buttons will disappear so make sure
     to remember their placement
-  icon: {fileID: 21300000, guid: 70141d51621e24facbca9196bbde84b4, type: 3}
+  icon: {fileID: 21300000, guid: ccff2ea708c02164c836d8e04889f614, type: 3}
   challengeType: 3
   midRound: 1

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   challengeName: button shuffle
   description: After each sequence showcase the buttons will  randomly switch places
-  icon: {fileID: 21300000, guid: 70141d51621e24facbca9196bbde84b4, type: 3}
+  icon: {fileID: 21300000, guid: b6e54efe13edf714fa07c320cb13c644, type: 3}
   challengeType: 0
   midRound: 1

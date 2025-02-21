@@ -49,7 +49,6 @@ public class SequenceManager : MonoBehaviour
 
     public void ExpandSequenceEvent(object sender, System.EventArgs e)
     {
-        Debug.Log("evt seq");
         AddActionButton();
     }
 

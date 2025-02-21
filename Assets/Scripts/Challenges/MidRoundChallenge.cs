@@ -32,7 +32,6 @@ public class MidRoundChallenge : MonoBehaviour
                 StartCoroutine(DisappearingButtonsRoutine());
                 break;
         }
-        //OnMidRoundChallengeFinished?.Invoke(this, EventArgs.Empty);
     }
 
     private IEnumerator ShuffleButtonsRoutine()
@@ -65,7 +64,7 @@ public class MidRoundChallenge : MonoBehaviour
     {
         // steps:
         // 1) using lean tween to fade out the buttons
-        List<GameButton> buttons = FindObjectsOfType<GameButton>().ToList();
+        List<GameButton> buttons = SequenceManager.Instance.GetGameButtonList();
 
         yield return new WaitForSeconds(buttonDisapearDuration);
         for (int i = 0; i < buttons.Count; i++)
@@ -81,7 +80,7 @@ public class MidRoundChallenge : MonoBehaviour
     {
         // steps:
         // 1) using lean tween to fade out the buttons
-        List<GameButton> buttons = FindObjectsOfType<GameButton>().ToList();
+        List<GameButton> buttons = SequenceManager.Instance.GetGameButtonList();
 
         yield return new WaitForSeconds(buttonDisapearDuration);
         for (int i = 0; i < buttons.Count; i++)

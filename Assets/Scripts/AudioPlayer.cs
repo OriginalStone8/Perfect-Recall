@@ -24,6 +24,12 @@ public class AudioPlayer : MonoBehaviour
     [Header("Round Completed SFX")]
     [SerializeField] private AudioClip roundCompletedSFX;
 
+    [Header("Countdown SFX")]
+    [SerializeField] private AudioClip countdownSFX;
+
+    [Header("Countdown Completed SFX")]
+    [SerializeField] private AudioClip countdownCompletedSFX;
+
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource SFXSource;
@@ -119,6 +125,16 @@ public class AudioPlayer : MonoBehaviour
     public void PlayRoundCompletedSFX()
     {
         PlayClip(roundCompletedSFX);
+    }
+
+    public void PlayCountdownSFX()
+    {
+        PlayClip(countdownSFX);
+    }
+
+    public void PlayCountdownCompletedSFX()
+    {
+        PlayClip(countdownCompletedSFX);
     }
 
     private void PlayClip(AudioClip clip)

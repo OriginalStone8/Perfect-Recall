@@ -14,30 +14,31 @@ public class SceneLoader : MonoBehaviour
 
     public void ReloadScene()
     {
-        StartCoroutine(LoadSceneRoutine(SceneManager.GetActiveScene().name, 0.3f));
+        StartCoroutine(LoadSceneRoutine(SceneManager.GetActiveScene().name, 1f));
     }
 
     public void LoadGameOverScene()
     {
-        StartCoroutine(LoadSceneRoutine("GameOverScene", 0.3f));
+        StartCoroutine(LoadSceneRoutine("GameOverScene", 1f));
     }
 
     public void LoadGame()
     {
         FindObjectOfType<AudioPlayer>().PlayButtonSFX();
         ScoreManager.Instance.ResetScore();
-        StartCoroutine(LoadSceneRoutine("GameScene", 0.3f));
+        StartCoroutine(LoadSceneRoutine("GameScene", 1f));
     }
 
     public void LoadMenu()
     {
         FindObjectOfType<AudioPlayer>().PlayButtonSFX();
         ScoreManager.Instance.ResetScore();
-        StartCoroutine(LoadSceneRoutine("MainMenu", 0.3f));
+        StartCoroutine(LoadSceneRoutine("MainMenu", 1f));
     }
 
     private IEnumerator LoadSceneRoutine(string sceneName, float delay)
     {
+        TransitionLoader.Instance.StartTransition();
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
     }

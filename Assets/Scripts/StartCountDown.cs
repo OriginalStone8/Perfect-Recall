@@ -15,7 +15,6 @@ public class StartCountDown : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countDownText;
     [SerializeField] private float countDownTime;
     private float time;
-    private int prevSec = 4;
 
     private void Awake() 
     {
@@ -27,22 +26,36 @@ public class StartCountDown : MonoBehaviour
     {
         if (GameLoopManager.Instance.GetCurrentState() == GameLoopManager.State.Countdown)
         {
+            int prev = (int)time;
             time -= Time.deltaTime;
+            int cur = (int)time;
+
+            PlayCountdownSound(prev, cur);
             countDownText.text = ((int)time).ToString();
-            if ((int)time < prevSec && (int)time != 0)
-            {
-                prevSec = (int)time;
-                FindObjectOfType<AudioPlayer>().PlayCountdownSFX();
-            }
         }
         
         if (GameLoopManager.Instance.GetCurrentState() == GameLoopManager.State.Countdown && time <= 0)
         {
-            FindObjectOfType<AudioPlayer>().PlayCountdownCompletedSFX();
             time = countDownTime;
             OnCountdownFinished?.Invoke(this, EventArgs.Empty);
             Invoke("TurnOffCountDownText", 0.05f);
         }
+    }
+
+    public void StartCountdown() 
+    {
+        PlayCountdownSound(4, 3);
+    }
+
+    private void PlayCountdownSound(int prev, int cur)
+    {
+        if (prev != cur)
+        {
+            if (cur == 0)
+                FindObjectOfType<AudioPlayer>().PlayCountdownCompletedSFX();
+            else
+                FindObjectOfType<AudioPlayer>().PlayCountdownSFX(); 
+        }      
     }
 
     private void TurnOffCountDownText()

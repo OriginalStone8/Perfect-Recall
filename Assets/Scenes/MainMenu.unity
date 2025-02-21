@@ -1682,8 +1682,10 @@ MonoBehaviour:
   clickSFX: {fileID: 0}
   buttonSFX: {fileID: 0}
   challegeSFX: {fileID: 0}
-  gameOverSFX: {fileID: 0}
-  roundCompletedSFX: {fileID: 0}
+  gameOverSFX: {fileID: 8300000, guid: 50a1f3300793dd34b82da1aa95faed32, type: 3}
+  roundCompletedSFX: {fileID: 8300000, guid: de909b0c874732640815a4d95146c093, type: 3}
+  countdownSFX: {fileID: 8300000, guid: 2f7e008ac02614b409f27ddca71337c3, type: 3}
+  countdownCompletedSFX: {fileID: 8300000, guid: 2f7e008ac02614b409f27ddca71337c3, type: 3}
   musicSource: {fileID: 298272359}
   SFXSource: {fileID: 1022303799}
 --- !u!1 &2030894185

@@ -133,7 +133,7 @@ public class SequenceManager : MonoBehaviour
         }
         else if (input.Count == requiredActionSequence.Count)
         {
-            FindObjectOfType<AudioPlayer>().PlayRoundCompletedSFX();
+            //FindObjectOfType<AudioPlayer>().PlayRoundCompletedSFX();
 
             countTime = false;
             

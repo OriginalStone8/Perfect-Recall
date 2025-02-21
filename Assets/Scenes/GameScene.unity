@@ -2814,7 +2814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownText: {fileID: 472782033}
-  countDownTime: 3.5
+  countDownTime: 3.9
 --- !u!4 &854949701
 Transform:
   m_ObjectHideFlags: 0

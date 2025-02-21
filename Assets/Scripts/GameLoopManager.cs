@@ -132,6 +132,8 @@ public class GameLoopManager : MonoBehaviour
 
     private void MoveToNextRound()
     {
+        FindObjectOfType<AudioPlayer>().PlayRoundCompletedSFX();
+
         if (ChallengeManager.Instance.GetActiveChallenge() != null)
         {
             ChallengeManager.Instance.ResetAfterChallenge();
@@ -187,6 +189,10 @@ public class GameLoopManager : MonoBehaviour
     public void SetCurrentState(State state)
     {
         this.state = state;
+        if (state == State.Countdown) 
+        {
+            StartCountDown.Instance.StartCountdown();
+        }
     }
 
     public int GetCurrentInsideRoundMax()

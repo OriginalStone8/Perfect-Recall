@@ -78,20 +78,22 @@ public class HoldSlider : MonoBehaviour
         move = enable;
     }
 
-    private void SliderMoveRoutine()
+    public void PauseMove()
     {
-        /*handle.LeanMove(maxPos.position, HoldToConfirmButton.Instance.GetSpeed()).setEaseInOutSine().setOnComplete(() => {
-            handle.LeanMove(minPos.position, HoldToConfirmButton.Instance.GetSpeed()).setEaseInOutSine().setOnComplete(() => {
-                moveCD = false;
-            });
-        });*/
+        move = false;
+        StartCoroutine(PauseRoutine());
+    }
+
+    public IEnumerator PauseRoutine()
+    {
+        yield return new WaitForSeconds(0.05f);
+        move = true;
     }
 
     public void GenerateSafeArea()
     {
         safeArea.position = new Vector2(Random.Range(minPosSafe.position.x, maxPosSafe.position.x), safeArea.position.y);
         Vector2 safePos = safeArea.GetComponent<RectTransform>().anchoredPosition;
-        Vector2 maxPos = maxPosSafe.GetComponent<RectTransform>().anchoredPosition;
         HoldToConfirmButton.Instance.SetSafeArea(safePos.x / width);
     }
 }

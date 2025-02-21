@@ -26,11 +26,9 @@ public class MidRoundChallenge : MonoBehaviour
         switch (type)
         {
             case ChallengeManager.ChallengeType.ShuffledButtons:
-                Debug.Log("buttons shuffled");
                 StartCoroutine(ShuffleButtonsRoutine());
                 break;
             case ChallengeManager.ChallengeType.DisapearingButtons:
-                Debug.Log("buttons disappeared");
                 StartCoroutine(DisappearingButtonsRoutine());
                 break;
         }

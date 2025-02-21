@@ -34,6 +34,16 @@ public class HoldToConfirmButton : MonoBehaviour
         }
     }
 
+    public void GenerateSafeArea()
+    {
+        slider.GenerateSafeArea();
+    }
+
+    public void PauseMove()
+    {
+        slider.PauseMove();
+    }
+
     public void SetSafeArea(float min)
     {
         safeAreaMax = min + range;

@@ -14,7 +14,7 @@ public class SequenceManager : MonoBehaviour
 
     private List<GameButton> requiredActionSequence = new List<GameButton>();
 
-    private List<GameButton> gameButtons;
+    private List<GameButton> gameButtons = new List<GameButton>();
 
     private float timeToCompleteSeq;
     private bool countTime;
@@ -23,8 +23,16 @@ public class SequenceManager : MonoBehaviour
     private void Awake() 
     {
         Instance = this;
-        gameButtons = FindObjectsOfType<GameButton>().ToList();
+        
+        List<GameButton> buttonList = FindObjectsOfType<GameButton>().ToList();
+        gameButtons.Clear();
+        for (int i = 0; i < buttonList.Count; i++)
+        {
+            if (!buttonList[i].GetIsUI())
+                gameButtons.Add(buttonList[i]);
+        }
     }
+    
 
     private void Start() 
     {
@@ -41,6 +49,7 @@ public class SequenceManager : MonoBehaviour
 
     public void ExpandSequenceEvent(object sender, System.EventArgs e)
     {
+        Debug.Log("evt seq");
         AddActionButton();
     }
 
@@ -104,6 +113,7 @@ public class SequenceManager : MonoBehaviour
         if (input.Count > requiredActionSequence.Count)
         {
             //game over
+            FindObjectOfType<AudioPlayer>().PlayGameOverSFX();
             OnGameOver?.Invoke(this, EventArgs.Empty);
             return;
         }
@@ -119,10 +129,13 @@ public class SequenceManager : MonoBehaviour
         if (wrong)
         {
             // game over
+            FindObjectOfType<AudioPlayer>().PlayGameOverSFX();
             OnGameOver?.Invoke(this, EventArgs.Empty);
         }
         else if (input.Count == requiredActionSequence.Count)
         {
+            FindObjectOfType<AudioPlayer>().PlayRoundCompletedSFX();
+
             countTime = false;
             
             SequenceInputManager.Instance.ClearInputList();
@@ -131,8 +144,7 @@ public class SequenceManager : MonoBehaviour
             GameLoopManager.Instance.FinishInsideRound();
             
             int pointsToAdd = GameLoopManager.Instance.GetCurrentRound() * ScoreManager.Instance.GetScoreMultiplier();
-            if (GameLoopManager.Instance.GetCurrentInsideRoundMax() > 4)
-                pointsToAdd *= Mathf.RoundToInt(ScoreManager.Instance.GetTimeBonus(timeToCompleteSeq, GameLoopManager.Instance.GetCurrentRound()));
+            pointsToAdd *= Mathf.RoundToInt(ScoreManager.Instance.GetTimeBonus(timeToCompleteSeq, GameLoopManager.Instance.GetCurrentRound()));
             
             ScoreManager.Instance.ModifyScore(pointsToAdd);
         }
@@ -145,7 +157,13 @@ public class SequenceManager : MonoBehaviour
 
     public void UpdateGameButtonList()
     {
-        gameButtons = FindObjectsOfType<GameButton>().ToList();
+        List<GameButton> buttonList = FindObjectsOfType<GameButton>().ToList();
+        gameButtons.Clear();
+        for (int i = 0; i < buttonList.Count; i++)
+        {
+            if (!buttonList[i].GetIsUI())
+                gameButtons.Add(buttonList[i]);
+        }
     }
 
     public List<GameButton> GetGameButtonList()

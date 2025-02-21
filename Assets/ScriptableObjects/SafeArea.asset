@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b78cc2bb63d26414bb9c568338d328fe, type: 3}
-  m_Name: HoldToConfirm
+  m_Name: SafeArea
   m_EditorClassIdentifier: 
-  challengeName: Hold & confirm
-  description: In order for the click to register, you must hold it and release when
-    the line reaches the "safe area"
+  challengeName: Safe area
+  description: In order for the click to be correct, you must click only when the
+    line reaches the "safe area"
   icon: {fileID: 21300000, guid: 70141d51621e24facbca9196bbde84b4, type: 3}
-  challengeType: 3
+  challengeType: 2
   midRound: 0

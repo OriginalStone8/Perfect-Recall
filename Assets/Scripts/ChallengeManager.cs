@@ -12,9 +12,8 @@ public class ChallengeManager : MonoBehaviour
     public enum ChallengeType
     {
         ShuffledButtons,
-        MirrorMode,
         SpeedUp,
-        HoldToConfirm,
+        SafeArea,
         DisapearingButtons,
         ButtonHell
     }
@@ -45,6 +44,9 @@ public class ChallengeManager : MonoBehaviour
                 break;
             case ChallengeType.ButtonHell:
                 ButtonHell.Instance.RemoveButtons();
+                break;
+            case ChallengeType.SafeArea:
+                HoldToConfirmButton.Instance.ToggleHoldSlider(false);
                 break;
         }
     }

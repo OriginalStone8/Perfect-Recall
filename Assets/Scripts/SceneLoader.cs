@@ -24,12 +24,14 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadGame()
     {
+        FindObjectOfType<AudioPlayer>().PlayButtonSFX();
         ScoreManager.Instance.ResetScore();
         StartCoroutine(LoadSceneRoutine("GameScene", 0.3f));
     }
 
     public void LoadMenu()
     {
+        FindObjectOfType<AudioPlayer>().PlayButtonSFX();
         ScoreManager.Instance.ResetScore();
         StartCoroutine(LoadSceneRoutine("MainMenu", 0.3f));
     }

@@ -1,17 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameButton : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer buttonPart;
+    [SerializeField] private Image buttonPartUI;
+    [SerializeField] private bool isUI;
 
     private Vector3 originalPos;
 
     private void Start() 
     {
-        buttonPart.color = ButtonColorAssigner.Instance.GetButtonColor();
-        ButtonColorAssigner.Instance.SetNormalMaterial(buttonPart);
+        if (isUI)
+        {
+            buttonPartUI.color = ButtonColorAssigner.Instance.GetButtonColor();
+            ButtonColorAssigner.Instance.SetNormalMaterial(buttonPartUI);
+        }
+        else
+        {
+            buttonPart.color = ButtonColorAssigner.Instance.GetButtonColor();
+            ButtonColorAssigner.Instance.SetNormalMaterial(buttonPart);
+        }
 
         originalPos = transform.position;
     }
@@ -32,18 +43,6 @@ public class GameButton : MonoBehaviour
     public void Pressed()
     {
         StartCoroutine(PressedRoutine());
-    }
-
-    public void HoldClick()
-    {
-        ButtonColorAssigner.Instance.SetPressedSprite(buttonPart);
-        ButtonColorAssigner.Instance.SetGlowMaterial(buttonPart);
-    }
-
-    public void ReleaseClick()
-    {
-        ButtonColorAssigner.Instance.SetNormalSprite(buttonPart);
-        ButtonColorAssigner.Instance.SetNormalMaterial(buttonPart);
     }
 
     public void FadeOutDestroy(float time)
@@ -146,5 +145,41 @@ public class GameButton : MonoBehaviour
             current = transform.GetChild(0).GetComponent<SpriteRenderer>().color;
             transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(current.r, current.g, current.b, 1);
         }
+    }
+
+    public void PressedUI()
+    {
+        StartCoroutine(PressedRoutineUI());
+        StartCoroutine(LightUpRoutineUI());
+    }
+
+    public void HighlightUI()
+    {
+        ButtonColorAssigner.Instance.SetPressedSprite(buttonPartUI);
+    }
+
+    public void ReleaseHighlightUI()
+    {
+        ButtonColorAssigner.Instance.SetNormalSprite(buttonPartUI);
+        ButtonColorAssigner.Instance.SetNormalMaterial(buttonPartUI);
+    }
+
+    private IEnumerator PressedRoutineUI()
+    {
+        ButtonColorAssigner.Instance.SetPressedSprite(buttonPartUI);
+        yield return new WaitForSeconds(ButtonColorAssigner.LightUpDuration);
+        ButtonColorAssigner.Instance.SetNormalSprite(buttonPartUI);
+    }
+
+    private IEnumerator LightUpRoutineUI()
+    {
+        ButtonColorAssigner.Instance.SetGlowMaterial(buttonPartUI);
+        yield return new WaitForSeconds(ButtonColorAssigner.LightUpDuration);
+        ButtonColorAssigner.Instance.SetNormalMaterial(buttonPartUI);
+    }
+
+    public bool GetIsUI()
+    {
+        return isUI;
     }
 }

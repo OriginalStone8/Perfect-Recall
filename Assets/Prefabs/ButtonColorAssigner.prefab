@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1042284872902002247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042284872902002241}
+  - component: {fileID: 1042284872902002240}
+  m_Layer: 0
+  m_Name: ButtonColorAssigner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1042284872902002241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042284872902002247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -744.5681, y: -527.05054, z: 11.344578}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1042284872902002240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042284872902002247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c5648bcaea0cb47a534d6fa3fd3d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.41176474, g: 0.7019608, b: 0.9960785, a: 1}
+  - {r: 0.9960785, g: 0.76470596, b: 0.41176474, a: 1}
+  - {r: 0.9960785, g: 0.41176474, b: 0.80392164, a: 1}
+  - {r: 0.9960785, g: 0.41176474, b: 0.41176474, a: 1}
+  - {r: 0.41176468, g: 0.99607843, b: 0.50086397, a: 1}
+  - {r: 0.8316276, g: 0.41176468, b: 0.99607843, a: 1}
+  - {r: 0.99607843, g: 0.66914797, b: 0.41176468, a: 1}
+  glowMats:
+  - {fileID: 2100000, guid: 87397935b3322e045b65f3effebba674, type: 2}
+  - {fileID: 2100000, guid: 60b617b8ebd2f93419c53d65ba1a9a18, type: 2}
+  - {fileID: 2100000, guid: fe8d594b1f61c6e46b165a6c0b860436, type: 2}
+  - {fileID: 2100000, guid: 78a1140eafa09b3429856f5f83744348, type: 2}
+  - {fileID: 2100000, guid: 677be1f3f2b9faa4b8157d960e63841a, type: 2}
+  - {fileID: 2100000, guid: 4236f3f7eaad149428795c06c45064e4, type: 2}
+  - {fileID: 2100000, guid: 725c0ba6678383f4ea36a141559a8b33, type: 2}
+  presetColors: []
+  lightUpDuration: 0.25
+  normalMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  normalButtonPart: {fileID: 21300000, guid: eef83a5a2dad466488c5fd226f72b0d5, type: 3}
+  pressedButtonPart: {fileID: 21300000, guid: e0b15a0ff1bed3547833943b29260bc9, type: 3}

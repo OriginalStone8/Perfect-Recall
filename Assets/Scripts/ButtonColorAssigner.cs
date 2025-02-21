@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class ButtonColorAssigner : MonoBehaviour
 {
@@ -79,5 +80,26 @@ public class ButtonColorAssigner : MonoBehaviour
     {
         if (enable) LightUpDuration /= 2;
         else LightUpDuration = lightUpDuration;
+    }
+
+    public void SetGlowMaterial(Image renderer)
+    {
+        int index = presetColors.IndexOf(renderer.color);
+        renderer.material = glowMats[index];
+    }
+
+    public void SetNormalMaterial(Image renderer)
+    {
+        renderer.material = normalMaterial;
+    }
+
+    public void SetPressedSprite(Image renderer)
+    {
+        renderer.sprite = pressedButtonPart;
+    }
+
+    public void SetNormalSprite(Image renderer)
+    {
+        renderer.sprite = normalButtonPart;
     }
 }

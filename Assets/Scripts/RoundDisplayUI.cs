@@ -31,6 +31,7 @@ public class RoundDisplayUI : MonoBehaviour
 
     private void CallStartRound()
     {
+        FindObjectOfType<AudioPlayer>().PlayClickSFX();
         GameLoopManager.Instance.SetCurrentState(GameLoopManager.State.Countdown);
         ToggleRoundWaitPopUp(false, null);
         StartCountDown.Instance.ToggleCountdownText(true);

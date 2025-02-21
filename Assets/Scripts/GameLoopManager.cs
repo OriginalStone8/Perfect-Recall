@@ -62,6 +62,10 @@ public class GameLoopManager : MonoBehaviour
 
     private void OnCountdownFinished(object sender, EventArgs e)
     {
+        if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.SafeArea))
+        {
+            HoldToConfirmButton.Instance.ToggleHoldSlider(true);
+        }
         state = State.Showcase;
         GameStateGuideText.Instance.SetTextMessage(state);
     }
@@ -89,12 +93,6 @@ public class GameLoopManager : MonoBehaviour
         if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.DisapearingButtons))
         {
             StartCoroutine(MidRoundChallenge.Instance.ShowButtonsRoutine());
-        }
-
-        if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.SpeedUp))
-        {
-            SequenceManager.Instance.SetSpeedUpShowcase(true);
-            ButtonColorAssigner.Instance.SetSpeedUp(true);
         }
 
         state = State.Showcase;
@@ -155,6 +153,7 @@ public class GameLoopManager : MonoBehaviour
         if (currentRound % ChallengeManager.Instance.GetChallengeRoundDivider() == 0)
         {
             RoundDisplayUI.Instance.ToggleRoundWaitPopUp(true, ChallengeManager.Instance.RandomChallenge(), "dark");
+            FindObjectOfType<AudioPlayer>().PlayChallengeSFX();
         }  
         else
         {
@@ -167,6 +166,11 @@ public class GameLoopManager : MonoBehaviour
         if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.ButtonHell))
         {
             ButtonHell.Instance.AddButtons();
+        }
+
+        if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.SpeedUp))
+        {
+            ButtonColorAssigner.Instance.SetSpeedUp(true);
         }
     }
 

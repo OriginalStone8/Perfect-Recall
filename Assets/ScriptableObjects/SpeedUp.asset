@@ -15,5 +15,5 @@ MonoBehaviour:
   challengeName: Speed Up
   description: The showcase will be faster, try to keep up
   icon: {fileID: 21300000, guid: 70141d51621e24facbca9196bbde84b4, type: 3}
-  challengeType: 2
+  challengeType: 1
   midRound: 0

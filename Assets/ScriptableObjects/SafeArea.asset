@@ -15,6 +15,6 @@ MonoBehaviour:
   challengeName: Safe area
   description: In order for the click to be correct, you must click only when the
     line reaches the "safe area"
-  icon: {fileID: 21300000, guid: 70141d51621e24facbca9196bbde84b4, type: 3}
+  icon: {fileID: 21300000, guid: 493607b01656a4f4fadfcb86775bcaa9, type: 3}
   challengeType: 2
   midRound: 0

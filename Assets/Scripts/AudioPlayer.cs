@@ -37,8 +37,10 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource SFXSource;
 
+    [Header("Default Music Volume")]
+    [SerializeField] private float musicVol;
+
     private bool donePlaying = true;
-    private bool mainMenu;
 
     private void Awake() 
     {
@@ -47,11 +49,10 @@ public class AudioPlayer : MonoBehaviour
 
     private void Start() 
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu") {mainMenu = true;} else {mainMenu = false;}
         if (PlayerPrefs.GetFloat("SFX") == 0 && PlayerPrefs.GetFloat("SFX") == 0)
         {
             PlayerPrefs.SetFloat("SFX", 0.3f);
-            PlayerPrefs.SetFloat("Music", 0.3f);
+            PlayerPrefs.SetFloat("Music", 0.2f);
         }
         SFXSource.volume = PlayerPrefs.GetFloat("SFX");
         musicSource.volume = PlayerPrefs.GetFloat("Music");
@@ -78,6 +79,18 @@ public class AudioPlayer : MonoBehaviour
            PlayMusic(); 
            StartCoroutine(ReplayMusicRoutine());
         }
+    }
+
+    public void MuteMusic()
+    {
+        PlayerPrefs.SetFloat("Music", 0.001f);
+        musicSource.volume = PlayerPrefs.GetFloat("Music");
+    }
+
+    public void UnMuteMusic()
+    {
+        PlayerPrefs.SetFloat("Music", musicVol);
+        musicSource.volume = PlayerPrefs.GetFloat("Music");
     }
 
     public void ChangeSFXVolume(float volume)

@@ -25,6 +25,7 @@ public class GameButtonClickEvent : MonoBehaviour, IPointerClickHandler
                 else
                 {
                     //worng click, game over
+                    FindObjectOfType<AudioPlayer>().PlayGameOverSFX();
                     SequenceManager.Instance.CallGameOver();
                 }
             }

@@ -79,7 +79,7 @@ public class ButtonColorAssigner : MonoBehaviour
 
     public void SetSpeedUp(bool enable)
     {
-        if (enable) LightUpDuration /= 2;
+        if (enable) LightUpDuration /= 2.5f;
         else LightUpDuration = lightUpDuration;
     }
 

@@ -5161,11 +5161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   challengeSOs:
+  - {fileID: 11400000, guid: f594ad7435ac6dd4495945bcae1aad5d, type: 2}
   - {fileID: 11400000, guid: 7e0a8c598ded3bb419ea51d7af31bca2, type: 2}
   - {fileID: 11400000, guid: 88419c0d29e7cc04685c817ed45dd36f, type: 2}
   - {fileID: 11400000, guid: 6026f48ade30ffb49bfefa71979bff1a, type: 2}
   - {fileID: 11400000, guid: 8630be2c2ec55bd4facfdc7a2578683c, type: 2}
-  - {fileID: 11400000, guid: f594ad7435ac6dd4495945bcae1aad5d, type: 2}
   challengeRoundDivider: 2
 --- !u!1 &1651672707
 GameObject:

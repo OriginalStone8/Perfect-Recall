@@ -99,7 +99,7 @@ public class SequenceManager : MonoBehaviour
             requiredActionSequence[i].LightUp();
             float timeBetween = ButtonColorAssigner.LightUpDuration * 2;
             if (speedUp)
-                timeBetween *= 0.65f;
+                timeBetween *= 0.5f;
             yield return new WaitForSeconds(timeBetween);
         }
         OnShowcaseFinished?.Invoke(this, EventArgs.Empty);

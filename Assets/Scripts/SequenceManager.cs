@@ -49,6 +49,7 @@ public class SequenceManager : MonoBehaviour
 
     public void ExpandSequenceEvent(object sender, System.EventArgs e)
     {
+        OnShowcaseStarts?.Invoke(this, EventArgs.Empty);
         AddActionButton();
     }
 

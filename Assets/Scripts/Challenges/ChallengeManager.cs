@@ -46,7 +46,7 @@ public class ChallengeManager : MonoBehaviour
                 ButtonHell.Instance.RemoveButtons();
                 break;
             case ChallengeType.SafeArea:
-                HoldToConfirmButton.Instance.ToggleHoldSlider(false);
+                SafeAreaManager.Instance.ToggleHoldSlider(false);
                 break;
         }
     }

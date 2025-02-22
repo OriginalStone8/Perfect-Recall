@@ -5082,11 +5082,9 @@ MonoBehaviour:
   minPos: {fileID: 260984978}
   maxPos: {fileID: 225561288}
   width: 300
-  HandleWidth: 8
   safeArea: {fileID: 1994471830}
   minPosSafe: {fileID: 1904652875}
   maxPosSafe: {fileID: 1277035371}
-  safeAreaWidth: 90
 --- !u!1 &1579703232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5166,8 +5164,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e0a8c598ded3bb419ea51d7af31bca2, type: 2}
   - {fileID: 11400000, guid: 88419c0d29e7cc04685c817ed45dd36f, type: 2}
   - {fileID: 11400000, guid: 6026f48ade30ffb49bfefa71979bff1a, type: 2}
-  - {fileID: 11400000, guid: f594ad7435ac6dd4495945bcae1aad5d, type: 2}
   - {fileID: 11400000, guid: 8630be2c2ec55bd4facfdc7a2578683c, type: 2}
+  - {fileID: 11400000, guid: f594ad7435ac6dd4495945bcae1aad5d, type: 2}
   challengeRoundDivider: 2
 --- !u!1 &1651672707
 GameObject:
@@ -6311,8 +6309,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1976241621}
   - component: {fileID: 1976241622}
+  - component: {fileID: 1976241623}
   m_Layer: 5
-  m_Name: HoldToConfirmSlider
+  m_Name: SafeAreaSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6354,6 +6353,19 @@ MonoBehaviour:
   slider: {fileID: 1553234297}
   range: 0.4
   speed: 5
+  canvasGroup: {fileID: 1976241623}
+--- !u!225 &1976241623
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976241620}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1986642883
 GameObject:
   m_ObjectHideFlags: 0

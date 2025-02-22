@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class HoldToConfirmButton : MonoBehaviour
+public class SafeAreaManager : MonoBehaviour
 {
-    public static HoldToConfirmButton Instance { get; private set; }
+    public static SafeAreaManager Instance { get; private set; }
 
-    [SerializeField] private HoldSlider slider;
+    [SerializeField] private SafeAreaSlider slider;
     [SerializeField] private float range;
     [SerializeField] private float speed;
+    [SerializeField] private CanvasGroup canvasGroup;
 
     private float safeAreaMin, safeAreaMax;
 
@@ -64,6 +65,37 @@ public class HoldToConfirmButton : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public void ToggleVisibility(bool enable)
+    {
+        //StartCoroutine(FadeVisibilityRoutine(enable, 0.3f));
+        if (enable) canvasGroup.alpha = 1;
+        else canvasGroup.alpha = 0;
+    }
+
+    private IEnumerator FadeVisibilityRoutine(bool enable, float time)
+    {
+        if (enable)
+        {
+            canvasGroup.alpha = 0;
+            while (canvasGroup.alpha < 1)
+            {
+                canvasGroup.alpha += 0.02f;
+                yield return new WaitForSeconds(time/50);
+            }
+            canvasGroup.alpha = 1;
+        }
+        else
+        {
+            canvasGroup.alpha = 1;
+            while (canvasGroup.alpha < 1)
+            {
+                canvasGroup.alpha -= 0.02f;
+                yield return new WaitForSeconds(time/50);
+            }
+            canvasGroup.alpha = 0;
         }
     }
 

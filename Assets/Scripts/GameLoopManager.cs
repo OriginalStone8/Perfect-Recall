@@ -64,10 +64,10 @@ public class GameLoopManager : MonoBehaviour
     {
         if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.SafeArea))
         {
-            HoldToConfirmButton.Instance.ToggleHoldSlider(true);
+            SafeAreaManager.Instance.ToggleHoldSlider(true);
         }
-        state = State.Showcase;
-        GameStateGuideText.Instance.SetTextMessage(state);
+        //state = State.Showcase;
+        //GameStateGuideText.Instance.SetTextMessage(state);
     }
 
     private void OnShowcaseFinished(object sender, EventArgs e)
@@ -78,8 +78,16 @@ public class GameLoopManager : MonoBehaviour
             //invoke to start the mid round action
             Invoke("CallMidRoundChallenge", 0.2f);
         }
-        else 
+        else if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.SafeArea))
+        {
+            SafeAreaManager.Instance.ToggleVisibility(true);
             state = State.RoundGame;
+        }
+        else 
+        {
+            state = State.RoundGame;
+        } 
+        
         GameStateGuideText.Instance.SetTextMessage(state);
     }
 
@@ -93,6 +101,10 @@ public class GameLoopManager : MonoBehaviour
         if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.DisapearingButtons))
         {
             StartCoroutine(MidRoundChallenge.Instance.ShowButtonsRoutine());
+        }
+        else if (ChallengeManager.Instance.CompareActiveChallengeType(ChallengeManager.ChallengeType.SafeArea))
+        {
+            SafeAreaManager.Instance.ToggleVisibility(false);
         }
 
         state = State.Showcase;

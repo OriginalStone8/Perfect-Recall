@@ -2,21 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoldSlider : MonoBehaviour
+public class SafeAreaSlider : MonoBehaviour
 {
     [SerializeField] private Transform handle;
     [SerializeField] private Transform minPos, maxPos;
     [SerializeField] private int width;
-    [SerializeField] private int HandleWidth;
     [SerializeField] private Transform safeArea;
     [SerializeField] private Transform minPosSafe, maxPosSafe;
-    [SerializeField] private int safeAreaWidth;
 
 
     private float value;
-
-    private float max = 1;
-    private float min = 0;
 
     private bool move;
     private bool toMax;
@@ -25,7 +20,7 @@ public class HoldSlider : MonoBehaviour
     {
         if (move)
         {
-            float step = HoldToConfirmButton.Instance.GetSpeed() * Time.deltaTime;
+            float step = SafeAreaManager.Instance.GetSpeed() * Time.deltaTime;
 
             if (toMax)
             {
@@ -94,6 +89,6 @@ public class HoldSlider : MonoBehaviour
     {
         safeArea.position = new Vector2(Random.Range(minPosSafe.position.x, maxPosSafe.position.x), safeArea.position.y);
         Vector2 safePos = safeArea.GetComponent<RectTransform>().anchoredPosition;
-        HoldToConfirmButton.Instance.SetSafeArea(safePos.x / width);
+        SafeAreaManager.Instance.SetSafeArea(safePos.x / width);
     }
 }

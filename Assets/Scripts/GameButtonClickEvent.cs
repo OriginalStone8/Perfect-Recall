@@ -16,11 +16,11 @@ public class GameButtonClickEvent : MonoBehaviour, IPointerClickHandler
 
             if (holdToConfirmActive)
             {
-                HoldToConfirmButton.Instance.PauseMove();
-                if (HoldToConfirmButton.Instance.CheckForSafeArea())
+                SafeAreaManager.Instance.PauseMove();
+                if (SafeAreaManager.Instance.CheckForSafeArea())
                 {
                     SequenceInputManager.Instance.AddInputButton(btn);
-                    HoldToConfirmButton.Instance.GenerateSafeArea();
+                    SafeAreaManager.Instance.GenerateSafeArea();
                 }
                 else
                 {
